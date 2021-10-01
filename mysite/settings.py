@@ -27,7 +27,7 @@ SECRET_KEY = '#ke#k2ys%6ijv^j@&ds@1-4xjv#^=%6x5$g^2bnffhmbj$1(3u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','https://hlogi-blog.herokuapp.com']
 
 
 # Application definition

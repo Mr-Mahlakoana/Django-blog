@@ -1,0 +1,57 @@
+{% load blog_tags %} {% load static %}
+<div class="w3-col l4">
+    <!-- About Card -->
+    <div class="w3-card w3-margin w3-margin-top">
+        <img
+            src="{% static './images/avatar3.png' %}"
+            style="width: 100%"
+        />
+        <div class="w3-container w3-white">
+            <h4><b>My Name is Hlogi</b></h4>
+            <p>
+                Just me, myself and I, exploring the
+                universe of uknownment. I have a heart of
+                love and a interest of lorem ipsum and
+                mauris neque quam blog. I want to share my
+                world with you.
+            </p>
+        </div>
+    </div>
+    <hr />
+    <!-- latest tag Posts -->
+    {% show_latest_posts 3 %}
+
+    <!-- most commented Posts -->
+    <div class="w3-card w3-margin">
+        <div class="w3-container w3-padding">
+            <h4>Most commented Posts</h4>
+        </div>
+        {% get_most_commented_posts as most_commented_posts %}
+        {% for post in most_commented_posts %}
+        <ul class="w3-ul w3-hoverable w3-white">
+            <li class="w3-padding-16">
+                <a
+                    style="text-decoration: none"
+                    href="{{ post.get_absolute_url }}"
+                >
+                    <img
+                        src="{% static './images/avatar3.png' %}"
+                        alt="Image"
+                        class="w3-left w3-margin-right"
+                        style="width: 50px"
+                    />
+                    <span class="w3-large"
+                        >{{ post.author }}</span
+                    >
+                    <br />
+                    <span>{{ post.title }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <hr />
+
+    {% include "blog/partials/tags.html" %}
+    <!-- END About/Intro Menu -->
+</div>

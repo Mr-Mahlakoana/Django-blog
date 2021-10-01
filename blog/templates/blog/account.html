@@ -1,0 +1,68 @@
+{% extends "blog/base.html" %}{% load static %} 
+{% block content %}
+<div class="w3-col l8 s12">
+<!-- Profile -->
+<div class="w3-card w3-round w3-white" style="margin-top:14px">
+    <div class="w3-container">
+        <h4 class="w3-center w">My Profile</h4>
+        <p class="w3-center">
+            <img
+                src="{% if profile.profile_pic  %}{{profile.profile_pic.url}}
+                {% else %}{% static '/images/avatar2.png' %}{% endif %}"
+                class="w3-circle"
+                style="height: 106px; width: 106px"
+                alt="Avatar"
+            />
+        </p>
+        <hr />
+        <p>
+            <i
+                class="
+                    fa fa-pencil fa-fw
+                    w3-margin-right w3-text-theme
+                "
+            ></i>
+          User Name: {{profile.user}}
+        </p>
+        <p>
+            <i
+                class="
+                    fa fa-home fa-fw
+                    w3-margin-right w3-text-theme
+                "
+            ></i>
+           Email: {{profile.email}}
+        </p>
+        <p>
+            <i
+                class="
+                    fa fa-birthday-cake fa-fw
+                    w3-margin-right w3-text-theme
+                "
+            ></i>
+           bio : {{profile.bio}}
+        </p>
+        <p>
+            <i
+                class="
+                    fa fa-birthday-cake fa-fw
+                    w3-margin-right w3-text-theme
+                "
+            ></i>
+           Twitter : {{profile.twitter}}
+        </p>
+        <p>
+            <i
+                class="
+                    fa fa-birthday-cake fa-fw
+                    w3-margin-right w3-text-theme
+                "
+            ></i>
+           Edit profile : <a href="{% url 'blog:editprofile'%}">Edit</a> 
+        </p>
+    </div>
+</div>
+<br />
+</div>
+{% endblock %}
+

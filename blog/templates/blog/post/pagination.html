@@ -1,0 +1,24 @@
+<div class="w3-center">
+    <div class="w3-bar">
+        {% if page.has_previous %}
+        <a
+            href="?page={{ page.previous_page_number }}"
+            class="w3-bar-item w3-button w3-hover-black"
+            >«</a
+        >
+        {% endif %}
+        <a href="#" class="w3-bar-item w3-black w3-button"
+            >{{ page.number }}
+        </a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-black"
+            >{{ page.paginator.num_pages }}</a
+        >
+        {% if page.has_next %}
+        <a
+            href="?page={{ page.next_page_number }}"
+            class="w3-bar-item w3-button w3-hover-black"
+            >»</a
+        >
+        {% endif %}
+    </div>
+</div>

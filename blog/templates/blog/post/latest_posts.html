@@ -1,0 +1,26 @@
+{% load static %} 
+<div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+        <h4>Latest Posts</h4>
+    </div>
+    {% for post in latest_posts %}
+    <ul class="w3-ul w3-hoverable w3-white">
+        <li class="w3-padding-16">
+            <a 
+            style="text-decoration:none;" 
+            href="{{ post.get_absolute_url }}">
+                <img
+                    src="{% static './images/avatar3.png' %}"
+                    alt="Image"
+                    class="w3-left w3-margin-right"
+                    style="width: 50px"
+                    />
+                <span class="w3-large">{{ post.author }}</span>
+                <br />
+                <span>{{ post.title }}</span>
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+<hr />

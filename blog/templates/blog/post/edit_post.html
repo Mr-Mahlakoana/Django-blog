@@ -1,0 +1,115 @@
+{% extends "blog/base.html" %}{% load static %} 
+{% block title %}My Blog{%endblock %}
+ {% block content %}
+<style>
+input[type=text],input[type=password],input[type=email],textarea{
+	border: 1px solid grey;
+	padding: 10px;;
+	width:90%;
+}
+.input-container label{
+	align-self:flex-start;
+	display:block;
+	margin-left:5%;
+}
+
+.input-container{
+	width:90%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	margin:0 auto;
+}
+.django-ckeditor-widget{
+	width: 90% !importabt;
+}
+.thumbnail{
+	width:90%;
+	display:flex; 
+	flex-direction:row; 
+	justify-content: space-between;
+	align-items: center;
+}
+.thumbnail label,br,input[type=checkbox]{
+	display: none;
+}
+.thumbnail a{
+	margin-right: 20px;
+}
+</style>
+<section class="w3-col l8 s12">
+	<div class="w3-card w3-white">
+		<h3 class="w3-center w3-margin-top">Edit Post</h3>
+		<hr>
+		<form method="POST" class="input-container" enctype="multipart/form-data">
+			{% csrf_token%}
+            <!-- {{ form.as_p }} {{form.media}} -->
+            <label>{{form.title.label}}</label>
+			{{form.title}}
+			{% if form.title.errors%}
+				<label style="color:red;" for="">{{form.title.errors}}</label>
+			{% endif %}
+
+			<label>{{form.title_description.label}}</label>
+			{{form.title_description}}
+			{% if form.title_description.errors%}
+				<label style="color:red;" for="">{{form.title_description.errors}}</label>
+			{% endif %}
+
+			<label>{{form.slug.label}}</label>
+			{{form.slug}}
+			{% if form.slug.errors%}
+			<label style="color:red;" for="">{{form.slug.errors}}</label>
+			{% endif %}
+			
+
+			<label>{{form.author.label}}</label>
+			<div style="width: 90%; display:flex; margin-buttom:5px;">
+				{{form.author}}
+				{% if form.author.errors%}
+				<label style="color:red;" for="">{{form.author.errors}}</label>
+				{% endif %}
+			</div>
+			<label>{{form.body.label}}</label>
+			<div style="width:90%;">
+				{{form.body}}
+				{% if form.body.errors%}
+				<label style="color:red;" for="">{{form.body.errors}}</label>
+				{% endif %}
+				{{form.media}}
+			</div>
+
+			<label>{{form.thumbnail.label}}</label>
+			<div class="thumbnail">
+				{{form.thumbnail}}
+				{% if form.thumbnail.errors%}
+				<label style="color:red;" for="">{{form.thumbnail.errors}}</label>
+				{% endif %}
+			</div>
+
+			<label>{{form.publish.label}}</label>
+			{{form.publish}}
+			{% if form.publish.errors%}
+			<label style="color:red;" for="">{{form.publish.errors}}</label>
+			{% endif %}
+
+			<label>{{form.status.label}}</label>
+			<div style="width: 90%; display:flex;">
+				{{form.status}}
+				{% if form.status.errors%}
+				<label style="color:red;" for="">{{form.status.errors}}</label>
+				{% endif %}
+			</div>
+
+			<input
+                type="submit"
+                class="w3-button w3-theme"
+                value="Update"
+                style="width: 90%; margin-top:20px;"
+            >
+		</form>
+		<p class="w3-center w3-margin-buttom">Back to post <a href="{{post.get_absolute_url}}">Current post</a></p> 
+		<br>
+	</div>
+</section>
+{% endblock content %}

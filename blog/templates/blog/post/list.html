@@ -1,0 +1,54 @@
+{% extends "blog/base.html" %}{% load static %} 
+{% block title %}My Blog{%endblock %} {% block content %}
+<div class="w3-col l8 s12">
+    {% for post in posts %}
+    <div class="w3-card-4 w3-margin w3-white">
+        <img
+            src="{% if post.thumbnail %}{{ post.thumbnail.url }}
+            {% else %}{% static 'images/placeholder.png' %}{% endif %}"
+            style="width: 100%"
+        />
+        <div class="w3-container">
+            <h3><b>{{post.title}}</b></h3>
+            <h5>
+                {{post.title_description}}
+                <span class="w3-opacity">{{post.created}}</span>
+            </h5>
+        </div>
+
+        <div class="w3-container">
+            <p>{{ post.body|safe|truncatewords:40|linebreaks }}</p>
+            <div class="w3-row">
+                <div class="w3-col m8 s12">
+                    <p>
+                        <a
+                            class="
+                                w3-button w3-padding-large w3-white w3-border
+                            "
+                            href="{{ post.get_absolute_url }}"
+                        >
+                            <b>READ MORE »</b>
+                        </a>
+                    </p>
+                </div>
+                <div class="w3-col m4 w3-hide-small">
+                    <p>
+                        {% with post.comments.count as total_comments %}
+                        <span class="w3-padding-large w3-right"
+                            ><b>Comment{{ total_comments|pluralize }} </b>
+                            <span class="w3-badge">{{ total_comments }}</span>
+                        </span>
+                        {% endwith %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    {% endfor %}
+    <div class="w3-container w3-white w3-margin w3-padding-large">
+        {% include "blog/post/pagination.html" with page=posts %}
+    </div>
+</div>
+
+{% endblock %}

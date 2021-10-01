@@ -1,0 +1,24 @@
+{% load blog_tags %} 
+{% load static %}
+{% include "blog/partials/header.html" %}
+<body class="w3-light-grey">
+    {% include "blog/partials/nav.html" %}
+            <div class="w3-content" style="max-width: 1600px">
+                <!-- head -->
+                <header class="w3-container w3-center w3-padding-48">
+                    <h1 class="w3-xxxlarge"><b>HLOGI BLOGLIFE</b></h1>
+                    <h6>
+                        Welcome to <span class="w3-tag">Hlogi's world</span>
+                    </h6>
+                </header>
+
+                <!-- Grid contentd -->
+                <div class="w3-row w3-padding">
+                    <!-- Blog entries -->
+                    {% block content %} {% endblock %}
+                    <!-- END GRID -->
+                    {% include "blog/partials/sidecontent.html" %}
+                </div>
+                <!-- END w3-content -->
+            </div>
+{% include "blog/partials/footer.html" %}

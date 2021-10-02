@@ -1,5 +1,10 @@
 # Django blog 
 
+    This is a blog website developed with django, you can read posts comment on post only if
+    you login, update your profile and share post by email
+## Demo Website
+
+👉 Demo : https://hlogi-blog.herokuapp.com/
 ## How top run on your pc
 
 1 - Creat a virtual environment

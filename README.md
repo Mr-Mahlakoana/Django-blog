@@ -5,6 +5,9 @@ you login, update your profile and share post by email
 ## Demo Website
 
 👉 Demo : https://hlogi-blog.herokuapp.com/
+
+![Hlogi-blog](static/Hlogi-Blog.png)
+
 ## How top run on your pc
 
 1 - Creat a virtual environment

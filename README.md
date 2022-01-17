@@ -6,7 +6,7 @@ you login, update your profile and share post by email
 
 👉 Demo : https://hlogi-blog.herokuapp.com/
 
-![Hlogi-blog](static/Hlogi-Blog.png)
+![Hlogi-blog](Hlogi-Blog.png)
 
 ## How top run on your pc
 
